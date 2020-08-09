@@ -1,7 +1,6 @@
 package ru.netology.web.page;
 
 import com.codeborne.selenide.SelenideElement;
-import ru.netology.web.data.DataHelper;
 import com.codeborne.selenide.ElementsCollection;
 import lombok.val;
 
@@ -26,14 +25,14 @@ public class TransferPage {
             TransferPage.shouldBe(visible);
         }
 
-        public CardReplenishment replenish1() {
+        public CardPageReplenish replenish1() {
             replenish1.click();
-            return new CardReplenishment();
+            return new CardPageReplenish();
         }
 
-        public CardReplenishment replenish2() {
+        public CardPageReplenish replenish2() {
             replenish2.click();
-            return new CardReplenishment();
+            return new CardPageReplenish();
         }
 
         public int getCard1Balance() {
@@ -60,6 +59,7 @@ public class TransferPage {
             return Integer.parseInt(value);
         }
     }
+
 
 
 

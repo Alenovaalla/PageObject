@@ -4,7 +4,6 @@ import ru.netology.web.data.DataHelper;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-public class CardReplenishment {
 
     public class CardPageReplenish {
         private SelenideElement amountField = $("[data-test-id='amount'] .input__control");
@@ -16,10 +15,9 @@ public class CardReplenishment {
             cardPageReplenish.shouldBe(visible);
         }
 
-        public void replenishCardToCard(DataHelper.AuthInfo authInfo, String sum, DataHelper.CardNumber cardNumber) {
+        public void replenishCardToCard(DataHelper.CardNumber cardNumber, String sum) {
             amountField.setValue(sum);
             cardFrom.setValue(cardNumber.getCardForm());
             replenish.click();
         }
     }
-}
