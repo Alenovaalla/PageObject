@@ -26,5 +26,17 @@ class MoneyTransferTest {
     assertEquals(balanceCard2 - Integer.parseInt(sum), transferPage.getCard2Balance());
   }
 
-
+  @Test
+  void shouldErrorIfBalanceCardBelowZero() {
+    String sum = "30000";
+    val loginPage = open("http://localhost:9999", LoginPage.class);
+    val authInfo = DataHelper.getAuthInfo();
+    val verificationPage = loginPage.validLogin(authInfo);
+    val verificationCode = DataHelper.getVerificationCodeFor(authInfo);
+    val transferPage = verificationPage.validVerify(verificationCode);
+    val cardPageReplenish = transferPage.replenish1();
+    val infoCard = DataHelper.getCardNumber2();
+    cardPageReplenish.replenishCardToCard(infoCard, sum);
+    assertEquals("Недостаточно средств на карте.", cardPageReplenish.errorMessage1());
+  }
 }
