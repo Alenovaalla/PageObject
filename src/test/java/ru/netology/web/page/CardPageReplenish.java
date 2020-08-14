@@ -10,8 +10,7 @@ public class CardPageReplenish {
         private SelenideElement cardFrom = $("[data-test-id='from'] .input__control");
         private SelenideElement replenish = $("[data-test-id='action-transfer']");
         private SelenideElement cardPageReplenish = $("[data-test-id='dashboard']");
-        private SelenideElement errorMessage = $("[data-test-id='error-notification'] .notification__content");
-
+        private SelenideElement errorMessage = $("[class='error-notification']");
         public CardPageReplenish() {
             cardPageReplenish.shouldBe(visible);
         }
