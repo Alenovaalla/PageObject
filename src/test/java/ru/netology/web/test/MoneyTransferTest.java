@@ -27,7 +27,7 @@ class MoneyTransferTest {
     val cardPageReplenish = transferPage.replenish1();
     val infoCard = DataHelper.getCardNumber2();
     cardPageReplenish.replenishCardToCard(infoCard, sum);
-    assertEquals("Недостаточно средств на карте.", cardPageReplenish.errorMessage1());
+    cardPageReplenish.errorMessage1();
   }
 
   @Test

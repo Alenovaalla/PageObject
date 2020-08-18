@@ -1,8 +1,12 @@
 package ru.netology.web.page;
+
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 
 public class CardPageReplenish {
@@ -21,9 +25,9 @@ public class CardPageReplenish {
             replenish.click();
         }
 
-        public String errorMessage1() {
+        public void  errorMessage1() {
             errorMessage.shouldHave(visible);
             String text = errorMessage.getText();
-            return text;
+            assertEquals("Недостаточно средств на карте.", text);
         }
     }
